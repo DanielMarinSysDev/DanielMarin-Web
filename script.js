@@ -1,9 +1,9 @@
 // Esperamos a que todo el contenido del DOM esté cargado
 document.addEventListener('DOMContentLoaded', (event) => {
-    
+
     // --- 1. Botón de Subir (Scroll to Top) ---
     const scrollTopBtn = document.getElementById('scrollTopBtn');
-    
+
     if (scrollTopBtn) {
         // Mostrar/ocultar el botón basado en el scroll
         window.addEventListener('scroll', () => {
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
-            if(targetElement) {
+
+            if (targetElement) {
                 targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    // --- 3. Navegación Activa (Resaltar sección actual) ---
+    // --- 3. Navegación Activa iudgiugiuhriugigiuyvuyf(Resaltar sección actual) ---
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         });
     }
-    
+
     // --- 4. Animación de Aparición (Fade-in on scroll) ---
     const fadeInElements = document.querySelectorAll('.fade-in');
 
@@ -116,17 +116,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // --- 7. Enlaces Seguros (Anti-Scraping) ---
     const secureLinks = document.querySelectorAll('.secure-link');
-    
+
     secureLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             const type = link.getAttribute('data-type');
             const part1 = link.getAttribute('data-part1');
             const part2 = link.getAttribute('data-part2');
-            
+
             let url = '';
-            
+
             switch (type) {
                 case 'email':
                     url = `mailto:${part1}@${part2}`;
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         try {
             const response = await fetch('https://api.github.com/users/DanielMarinSysDev/repos?sort=updated');
             if (!response.ok) throw new Error('Error al cargar repositorios');
-            
+
             const repos = await response.json();
             // Filtrar forks y tomar los 3 primeros
             const proyectos = repos.filter(repo => !repo.fork).slice(0, 3);
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             proyectos.forEach(repo => {
                 const card = document.createElement('div');
                 card.className = 'bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-2xl fade-in fade-in-visible';
-                
+
                 // Imagen por defecto o personalizada si existiera
                 const imgUrl = `https://opengraph.githubassets.com/1/DanielMarinSysDev/${repo.name}`;
 
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         profileImg.addEventListener('click', () => {
             tapCount++;
             clearTimeout(tapTimer);
-            
+
             if (tapCount === 5) {
                 activarModoSysDev();
                 tapCount = 0;
