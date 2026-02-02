@@ -206,6 +206,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 // Imagen por defecto o personalizada si existiera
                 const imgUrl = `https://opengraph.githubassets.com/1/DanielMarinSysDev/${repo.name}`;
 
+                // Lógica personalizada para proyectos específicos
+                if (repo.name.toLowerCase().includes('inventario') || repo.name.toLowerCase().includes('electiva')) {
+                    repo.homepage = 'https://inventario.danielmarinsysdev.me';
+                }
+
                 card.innerHTML = `
                     <img src="${imgUrl}" alt="Imagen del proyecto ${repo.name}" class="w-full h-56 object-cover">
                     <div class="p-6">
