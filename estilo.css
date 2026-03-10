@@ -29,9 +29,19 @@
     filter: hue-rotate(90deg) contrast(1.2);
     font-family: 'Courier New', Courier, monospace;
 }
-/* Revertir el filtro en las imágenes para que no se vean como marcianos */
+/* Revertir el filtro en las imágenes para que no se vean como marcianos (excepto las fotos de perfil que queremos en a color, cancelando el doble invert) */
 .sysdev-mode img, .sysdev-mode .swiper-pagination-bullet {
     filter: hue-rotate(-90deg) contrast(0.83); 
+}
+
+/* Hacer que la foto de perfil vuelva a verse en colores reales */
+.sysdev-mode img[src*="Favicon.png"], 
+.sysdev-mode img[src*="bg_asset_hash_x92.png"],
+.sysdev-mode img[src*="L_B.png"],
+.sysdev-mode img[src*="L_C.png"],
+.sysdev-mode img[src*="L_N.png"],
+.sysdev-mode img[src*="L_O.png"] {
+    filter: hue-rotate(-90deg) contrast(0.83) grayscale(0) !important;
 }
 
 .sysdev-mode body {
@@ -56,4 +66,131 @@
 }
 .proyectos-swiper {
     padding-bottom: 20px !important;
+}
+
+/* --- V2 CUSTOM CURSOR --- */
+@media (hover: hover) and (pointer: fine) {
+    /* Ocultar el cursor por defecto solo en escritorio */
+    body {
+        cursor: none;
+    }
+    a, button, input, textarea, .cursor-pointer {
+        cursor: none !important;
+    }
+    .cursor-dot, .cursor-ring {
+        pointer-events: none !important;
+    }
+}
+
+/* === Modo Claro (Light Mode) === */
+body.light-mode {
+    background: #f8fafc !important; /* slate-50 */
+    color: #0f172a !important; /* slate-900 */
+}
+
+/* Ocultar glow de la terminal en modo claro porque mancha el fondo blanco */
+.light-mode #terminal-glow {
+    display: none !important;
+}
+
+/* Textos base oscuros en modo claro (excepto gradientes) */
+.light-mode h1, .light-mode h2, .light-mode h3, .light-mode h4, .light-mode h5, .light-mode h6,
+.light-mode p, .light-mode a, .light-mode span:not(.text-transparent), .light-mode strong, .light-mode div {
+    color: #0f172a;
+}
+
+/* Navbar texto */
+.light-mode .nav-name {
+    color: #0f172a !important;
+}
+
+/* Grises más oscuros para legibilidad en fondos claros */
+.light-mode .text-gray-400, .light-mode .text-gray-300 {
+    color: #475569 !important; /* slate-600 */
+}
+
+/* Modificar el Navbar en modo claro */
+.light-mode header {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Excepciones de colores de acento en modo claro */
+.light-mode .text-brand-blue {
+    color: #0284c7 !important; /* sky-600 */
+}
+.light-mode .text-brand-orange {
+    color: #ea580c !important; /* orange-600 */
+}
+
+/* Fondos oscuros de sección (Sobre mí, Contacto) */
+.light-mode .bg-\[\#070b0e\],
+.light-mode .bg-brand-dark\/30,
+.light-mode .bg-gray-800 {
+    background-color: #f1f5f9 !important; /* slate-100 */
+}
+
+/* Puntos de la línea de tiempo (About me) */
+.light-mode .bg-\[\#0a0f14\] {
+    background-color: #ffffff !important;
+}
+
+/* === Tarjetas de GitHub === */
+/* Degradado original para dark mode */
+.github-card-gradient {
+    background-image: linear-gradient(to top, rgba(5, 8, 11, 1), transparent);
+}
+/* Degradado inverso (blanco) para modo claro */
+.light-mode .github-card-gradient {
+    display: none !important; /* Quitamos el difuminado blanco para que no lave las imágenes */
+}
+
+/* Fondo Tarjetas de GitHub */
+.light-mode .bg-\[\#05080b\]\/90 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas (Topics) dentro de las tarjetas */
+.light-mode #proyectos .bg-white\/5 {
+    background-color: rgba(0,0,0,0.05) !important;
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #475569 !important;
+}
+
+/* === Terminal === 
+Mantener la terminal intacta en oscuro y sus colores originales */
+.light-mode #terminal-body, 
+.light-mode #terminal-body *, 
+.light-mode .font-mono,
+.light-mode .font-mono *,
+.light-mode .bg-\[\#05080b\]:not(.bg-\[\#05080b\]\/90) {
+    color: inherit;
+    background-color: inherit;
+}
+.light-mode .font-mono {
+    background-color: #05080b !important;
+}
+.light-mode #terminal-body .text-brand-blue { color: #4c96b3 !important; }
+.light-mode #terminal-body .text-brand-orange { color: #e64f19 !important; }
+.light-mode #terminal-body .text-white { color: #ffffff !important; }
+.light-mode #terminal-body .text-gray-400,
+.light-mode .font-mono .text-gray-400 { color: #9ca3af !important; }
+.light-mode #terminal-body .text-gray-300 { color: #d1d5db !important; }
+.light-mode #terminal-body .text-green-400 { color: #4ade80 !important; }
+.light-mode #terminal-body .text-green-500 { color: #22c55e !important; }
+.light-mode #terminal-body .text-yellow-400 { color: #facc15 !important; }
+.light-mode #terminal-body .text-red-400 { color: #f87171 !important; }
+.light-mode #terminal-body .text-red-500 { color: #ef4444 !important; }
+.light-mode #terminal-body input { color: #ffffff !important; }
+
+
+/* Asegurar contraste en botones primarios */
+.light-mode a.bg-brand-blue, .light-mode button.bg-brand-blue {
+    color: #ffffff !important;
+}
+.light-mode a.border-white\/20, .light-mode button.border-brand-orange {
+    border-color: rgba(0,0,0,0.2) !important;
+    color: #0f172a !important;
 }
