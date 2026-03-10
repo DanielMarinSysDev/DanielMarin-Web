@@ -29,10 +29,31 @@
     filter: hue-rotate(90deg) contrast(1.2);
     font-family: 'Courier New', Courier, monospace;
 }
+/* Revertir el filtro en las imágenes para que no se vean como marcianos */
+.sysdev-mode img, .sysdev-mode .swiper-pagination-bullet {
+    filter: hue-rotate(-90deg) contrast(0.83); 
+}
+
 .sysdev-mode body {
     background: #000 !important;
 }
 .sysdev-mode * {
     color: #0f0 !important;
     border-color: #0f0 !important;
+}
+
+/* --- SWIPER JS CUSTOM STYLES --- */
+.swiper-pagination-bullet {
+    background-color: #38bdf8 !important; /* Tailwind sky-400 */
+    opacity: 0.3 !important;
+    transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    width: 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+.proyectos-swiper {
+    padding-bottom: 20px !important;
 }

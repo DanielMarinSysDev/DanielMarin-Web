@@ -194,14 +194,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (!response.ok) throw new Error('Error al cargar repositorios');
 
             const repos = await response.json();
-            // Filtrar forks y tomar los 3 primeros
-            const proyectos = repos.filter(repo => !repo.fork).slice(0, 3);
+            // Filtrar forks y el repositorio de perfil (readme de GitHub)
+            const proyectos = repos.filter(repo => !repo.fork && repo.name !== 'DanielMarinSysDev');
 
             container.innerHTML = ''; // Limpiar loader
 
             proyectos.forEach(repo => {
                 const card = document.createElement('div');
-                card.className = 'bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-2xl fade-in fade-in-visible';
+                // Añadimos la clase 'swiper-slide' obligatoria para el carrusel
+                card.className = 'swiper-slide flex justify-center pb-12 pt-4 px-2';
 
                 // Imagen por defecto o personalizada si existiera
                 const imgUrl = `https://opengraph.githubassets.com/1/DanielMarinSysDev/${repo.name}`;
@@ -212,23 +213,57 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }
 
                 card.innerHTML = `
-                    <img src="${imgUrl}" alt="Imagen del proyecto ${repo.name}" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-Sky-600 mb-3 capitalize">${repo.name.replace(/-/g, ' ')}</h3>
-                        <p class="text-gray-300 mb-4 line-clamp-3">
-                            ${repo.description || 'Sin descripción disponible.'}
-                        </p>
-                        <div class="mb-5 flex flex-wrap gap-2">
-                            <span class="inline-block bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm font-semibold">${repo.language || 'Code'}</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 rounded-full px-3 py-1 text-sm font-semibold">★ ${repo.stargazers_count}</span>
+                    <div class="bg-gray-800/80 backdrop-blur-sm shadow-xl rounded-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(14,165,233,0.2)] border border-white/5 group w-full h-full flex flex-col">
+                        <div class="relative overflow-hidden w-full h-48 md:h-56 shrink-0">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60 z-10 transition-opacity duration-300 group-hover:opacity-40"></div>
+                            <img src="${imgUrl}" alt="Imagen del proyecto ${repo.name}" class="absolute inset-0 w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
                         </div>
-                        <div class="flex space-x-4">
-                            ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="text-Sky-400 font-medium hover:text-Sky-300 transition duration-300">Ver Demo</a>` : ''}
-                            <a href="${repo.html_url}" target="_blank" class="text-Sky-400 font-medium hover:text-Sky-300 transition duration-300">Código (GitHub)</a>
+                        <div class="p-6 relative z-20 flex flex-col flex-grow">
+                            <h3 class="text-xl md:text-2xl font-bold text-sky-400 mb-3 capitalize line-clamp-1">${repo.name.replace(/-/g, ' ')}</h3>
+                            <p class="text-gray-300 mb-4 line-clamp-3 text-sm md:text-base flex-grow">
+                                ${repo.description || 'Sin descripción disponible.'}
+                            </p>
+                            <div class="mb-5 flex flex-wrap gap-2 shrink-0">
+                                <span class="inline-block bg-sky-500/10 text-sky-300 border border-sky-500/20 rounded-full px-3 py-1 text-xs md:text-sm font-medium">${repo.language || 'Code'}</span>
+                                <span class="inline-block bg-slate-700/50 text-gray-300 border border-slate-600 rounded-full px-3 py-1 text-xs md:text-sm font-medium">★ ${repo.stargazers_count}</span>
+                            </div>
+                            <div class="flex space-x-3 shrink-0 mt-auto">
+                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="text-sky-400 font-medium text-sm md:text-base hover:text-sky-300 transition duration-300 bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20 hover:bg-sky-500/20">Ver Demo</a>` : ''}
+                                <a href="${repo.html_url}" target="_blank" class="text-gray-300 font-medium text-sm md:text-base hover:text-white transition duration-300 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/10">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 `;
                 container.appendChild(card);
+            });
+
+            // Inicializar SwiperJS después de que los proyectos se han renderizado
+            new Swiper(".proyectos-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                grabCursor: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                breakpoints: {
+                    // Mobile landscape y tablets
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    // Desktop
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
             });
 
         } catch (error) {
