@@ -2,7 +2,26 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
     // --- I18N LOGIC ---
-    const isSpanish = navigator.language.toLowerCase().startsWith('es');
+    let isSpanish = true;
+    const storedLang = localStorage.getItem('site_lang');
+    
+    if (storedLang) {
+        isSpanish = storedLang === 'es';
+    } else {
+        isSpanish = navigator.language.toLowerCase().startsWith('es');
+    }
+
+    const langToggleBtn = document.getElementById('lang-toggle');
+    if (langToggleBtn) {
+        langToggleBtn.textContent = isSpanish ? 'EN' : 'ES';
+        langToggleBtn.title = isSpanish ? 'Change Language to English' : 'Cambiar Idioma a Español';
+        langToggleBtn.addEventListener('click', () => {
+            const newLang = isSpanish ? 'en' : 'es';
+            localStorage.setItem('site_lang', newLang);
+            window.location.reload(); // Recarga para aplicar los cambios de inmediato
+        });
+    }
+
     if (!isSpanish) {
         document.documentElement.lang = 'en';
         

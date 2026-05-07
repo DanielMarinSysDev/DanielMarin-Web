@@ -106,27 +106,35 @@
                     <span class="text-2xl font-display font-bold text-white transition-colors duration-300 nav-name tracking-wide">Daniel Marin</span>
                 </a>
 
-                <!-- Navegación -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
-                        data-section="inicio">Inicio</a>
-                    <a href="#sobre-mi" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
-                        data-section="sobre-mi">Sobre mí</a>
-                    <a href="#proyectos" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
-                        data-section="proyectos">Proyectos</a>
-                    <a href="#contacto" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
-                        data-section="contacto">Contacto</a>
-                </div>
+                <!-- Controles Derecha -->
+                <div class="flex items-center space-x-4 md:space-x-8">
+                    <!-- Navegación -->
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#inicio" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
+                            data-section="inicio">Inicio</a>
+                        <a href="#sobre-mi" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
+                            data-section="sobre-mi">Sobre mí</a>
+                        <a href="#proyectos" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
+                            data-section="proyectos">Proyectos</a>
+                        <a href="#contacto" class="nav-link text-gray-300 hover:text-sky-400 transition duration-300"
+                            data-section="contacto">Contacto</a>
+                    </div>
 
-                <!-- Botón de Menú Móvil -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
+                    <!-- Botón de Idioma -->
+                    <button id="lang-toggle" class="text-brand-orange font-tech font-bold text-sm border border-brand-orange/50 hover:bg-brand-orange hover:text-[#0a0f14] px-3 py-1.5 rounded-sm transition-colors duration-300" title="Change Language">
+                        EN
                     </button>
+
+                    <!-- Botón de Menú Móvil -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16m-7 6h7"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
