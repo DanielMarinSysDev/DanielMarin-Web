@@ -1,6 +1,121 @@
 // Esperamos a que todo el contenido del DOM esté cargado
 document.addEventListener('DOMContentLoaded', (event) => {
 
+    // --- I18N LOGIC ---
+    const isSpanish = navigator.language.toLowerCase().startsWith('es');
+    if (!isSpanish) {
+        document.documentElement.lang = 'en';
+        
+        const dict = {
+            nav_inicio: "Home",
+            nav_sobre_mi: "About",
+            nav_proyectos: "Projects",
+            nav_contacto: "Contact",
+            preloader_iniciando: "SYSTEM BOOT_",
+            hero_h1: "Building <br>\n                        <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-sky-300\">Systems</span>",
+            hero_p1: 'I am <span class="text-white font-bold">Daniel Marin</span>, Systems Engineer.',
+            hero_p2: "Transforming complex architectures into clean and functional web experiences.",
+            hero_btn_proyectos: 'PROJECTS <span class="ml-2">→</span>',
+            hero_btn_sobre_mi: "ABOUT ME",
+            term_modulos: "» Loading core modules... [OK]",
+            term_motor: "» Initializing UI Engine... [OK]",
+            term_bienvenido: "Welcome to the interactive portfolio v2.0",
+            term_ayuda: 'Type <span class="text-brand-blue bg-brand-blue/10 px-1 rounded">help</span> to see available commands.',
+            about_h2: 'Behind the <span class="text-brand-blue">Code</span>',
+            about_p: 'My obsession with understanding how things work behind the screen led me to <strong class="text-white">Systems Engineering</strong>. Today, I mix my pure logic with my eye for UI design to build experiences that not only work, but feel alive.',
+            about_arq: "Architecture & Backend",
+            about_arq_desc: "Python, SQL, Relational Databases.",
+            about_front: "Dynamic Frontend",
+            about_front_desc: "JavaScript, TailwindCSS, Interactive UX/UI Design.",
+            about_eco: "Ecosystem & Deployment",
+            about_eco_desc: "Git, GitHub, Vercel, Web Optimization.",
+            proj_h2: 'Projects <span class="text-brand-orange">Vault</span>',
+            proj_cargando: "Loading projects from GitHub...",
+            contact_h2: "Connect With Me",
+            contact_p: "My inbox is always open centralizing ideas and building the future.",
+            contact_btn_email: "Start Transmission",
+            contact_btn_wa: "Ping on WhatsApp",
+            footer_derechos: " Daniel Marin - All rights reserved."
+        };
+
+        // DOM Updates
+        document.querySelectorAll('.nav-link[data-section="inicio"]').forEach(el => el.textContent = dict.nav_inicio);
+        document.querySelectorAll('.nav-link[data-section="sobre-mi"]').forEach(el => el.textContent = dict.nav_sobre_mi);
+        document.querySelectorAll('.nav-link[data-section="proyectos"]').forEach(el => el.textContent = dict.nav_proyectos);
+        document.querySelectorAll('.nav-link[data-section="contacto"]').forEach(el => el.textContent = dict.nav_contacto);
+
+        const preloaderText = document.querySelector('#preloader .flex span:first-child');
+        if (preloaderText) preloaderText.textContent = dict.preloader_iniciando;
+
+        const h1 = document.querySelector('#inicio h1');
+        if (h1) h1.innerHTML = dict.hero_h1;
+
+        const heroP1 = document.querySelector('#inicio p.text-xl');
+        if (heroP1) heroP1.innerHTML = dict.hero_p1;
+
+        const heroP2 = document.querySelector('#inicio p.text-md');
+        if (heroP2) heroP2.textContent = dict.hero_p2;
+
+        const btnProyectos = document.querySelector('#inicio a[href="#proyectos"]');
+        if (btnProyectos) btnProyectos.innerHTML = dict.hero_btn_proyectos;
+
+        const btnSobreMi = document.querySelector('#inicio a[href="#sobre-mi"]');
+        if (btnSobreMi) btnSobreMi.textContent = dict.hero_btn_sobre_mi;
+
+        const termBody = document.querySelector('#terminal-body');
+        if (termBody) {
+            const pTags = termBody.querySelectorAll('p');
+            if (pTags.length >= 4) {
+                pTags[1].textContent = dict.term_modulos;
+                pTags[2].textContent = dict.term_motor;
+                pTags[3].textContent = dict.term_bienvenido;
+                pTags[4].innerHTML = dict.term_ayuda;
+            }
+        }
+
+        const aboutH2 = document.querySelector('#sobre-mi h2');
+        if (aboutH2) aboutH2.innerHTML = dict.about_h2;
+
+        const aboutP = document.querySelector('#sobre-mi p.text-lg');
+        if (aboutP) aboutP.innerHTML = dict.about_p;
+
+        const aboutH4s = document.querySelectorAll('#sobre-mi h4');
+        const aboutPs = document.querySelectorAll('#sobre-mi .border-l-2 p');
+        if (aboutH4s.length >= 3) {
+            aboutH4s[0].textContent = dict.about_arq;
+            aboutH4s[1].textContent = dict.about_front;
+            aboutH4s[2].textContent = dict.about_eco;
+        }
+        if (aboutPs.length >= 3) {
+            aboutPs[0].textContent = dict.about_arq_desc;
+            aboutPs[1].textContent = dict.about_front_desc;
+            aboutPs[2].textContent = dict.about_eco_desc;
+        }
+
+        const projH2 = document.querySelector('#proyectos h2');
+        if (projH2) projH2.innerHTML = dict.proj_h2;
+
+        const projLoader = document.querySelector('#proyectos-container p');
+        if (projLoader) projLoader.textContent = dict.proj_cargando;
+
+        const contactH2 = document.querySelector('#contacto h2');
+        if (contactH2) contactH2.textContent = dict.contact_h2;
+
+        const contactP = document.querySelector('#contacto p.text-lg');
+        if (contactP) contactP.textContent = dict.contact_p;
+
+        const btnEmail = document.querySelector('#contacto button[data-type="email"]');
+        if (btnEmail) btnEmail.textContent = dict.contact_btn_email;
+
+        const btnWa = document.querySelector('#contacto button[data-type="whatsapp"]');
+        if (btnWa) btnWa.textContent = dict.contact_btn_wa;
+
+        const footerP = document.querySelector('footer p');
+        if (footerP) {
+            footerP.innerHTML = `&copy; <span id="current-year">${new Date().getFullYear()}</span>${dict.footer_derechos}`;
+        }
+    }
+
     // --- 0. PRELOADER V2 ---
     const preloader = document.getElementById('preloader');
     const loaderPerc = document.getElementById('loader-perc');
@@ -93,7 +208,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             switch(command) {
                 case 'help':
-                    response = `
+                    response = isSpanish ? `
                         <div class="text-gray-300 ml-4 py-2">
                             <span class="text-brand-blue w-24 inline-block">help</span> Muestra este mensaje<br>
                             <span class="text-brand-blue w-24 inline-block">projects</span> Navega a mis proyectos<br>
@@ -106,24 +221,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             <span class="text-brand-blue w-24 inline-block">ping</span> Prueba de conexión<br>
                             <span class="text-brand-blue w-24 inline-block">clear</span> Limpia la consola<br>
                             <span class="text-brand-blue w-24 inline-block">sysdev</span> ?????
+                        </div>` : `
+                        <div class="text-gray-300 ml-4 py-2">
+                            <span class="text-brand-blue w-24 inline-block">help</span> Shows this message<br>
+                            <span class="text-brand-blue w-24 inline-block">projects</span> Navigate to my projects<br>
+                            <span class="text-brand-blue w-24 inline-block">contact</span> Navigate to my socials<br>
+                            <span class="text-brand-blue w-24 inline-block">skills</span> View tech stack<br>
+                            <span class="text-brand-blue w-24 inline-block">theme light</span> Switch to light mode<br>
+                            <span class="text-brand-blue w-24 inline-block">theme dark</span> Switch to dark mode<br>
+                            <span class="text-brand-blue w-24 inline-block">github</span> Go to my GitHub profile<br>
+                            <span class="text-brand-blue w-24 inline-block">whoami</span> Who are you?<br>
+                            <span class="text-brand-blue w-24 inline-block">ping</span> Connection test<br>
+                            <span class="text-brand-blue w-24 inline-block">clear</span> Clear the console<br>
+                            <span class="text-brand-blue w-24 inline-block">sysdev</span> ?????
                         </div>`;
                     break;
                 case 'projects':
                     document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' });
-                    response = '<span class="text-green-400">» Navegando a proyectos...</span>';
+                    response = isSpanish ? '<span class="text-green-400">» Navegando a proyectos...</span>' : '<span class="text-green-400">» Navigating to projects...</span>';
                     break;
                 case 'contact':
                     document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
-                    response = '<span class="text-green-400">» Abriendo canal de comunicaciones...</span>';
+                    response = isSpanish ? '<span class="text-green-400">» Abriendo canal de comunicaciones...</span>' : '<span class="text-green-400">» Opening comms channel...</span>';
                     break;
                 case 'clear':
                     terminalHistory.innerHTML = '';
                     return; // Retornamos temprano para no imprimir repeticiones
                 case 'sysdev':
                     document.body.classList.toggle('sysdev-mode');
-                    response = document.body.classList.contains('sysdev-mode') ? 
-                        '<span class="text-red-500 font-bold animate-pulse">» PROTOCOLO OVERRIDE ACTIVADO.</span>' : 
-                        '<span class="text-green-400">» Sistemas restaurados.</span>';
+                    if(isSpanish) {
+                        response = document.body.classList.contains('sysdev-mode') ? 
+                            '<span class="text-red-500 font-bold animate-pulse">» PROTOCOLO OVERRIDE ACTIVADO.</span>' : 
+                            '<span class="text-green-400">» Sistemas restaurados.</span>';
+                    } else {
+                        response = document.body.classList.contains('sysdev-mode') ? 
+                            '<span class="text-red-500 font-bold animate-pulse">» OVERRIDE PROTOCOL ACTIVATED.</span>' : 
+                            '<span class="text-green-400">» Systems restored.</span>';
+                    }
                     break;
                 case 'skills':
                     response = `
@@ -141,7 +275,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     if (logoLight) logoLight.src = 'L_O.png';
                     const heroLogoLight = document.getElementById('profile-img');
                     if (heroLogoLight) heroLogoLight.src = 'L_N.png';
-                    response = '<span class="text-yellow-400">» Modo luz activado. Brillo al máximo.</span>';
+                    response = isSpanish ? '<span class="text-yellow-400">» Modo luz activado. Brillo al máximo.</span>' : '<span class="text-yellow-400">» Light mode activated. Max brightness.</span>';
                     break;
                 case 'theme dark':
                     document.body.classList.remove('light-mode');
@@ -149,17 +283,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     if (logoDark) logoDark.src = 'L_C.png';
                     const heroLogoDark = document.getElementById('profile-img');
                     if (heroLogoDark) heroLogoDark.src = 'L_B.png';
-                    response = '<span class="text-gray-400">» Oscuridad restaurada.</span>';
+                    response = isSpanish ? '<span class="text-gray-400">» Oscuridad restaurada.</span>' : '<span class="text-gray-400">» Darkness restored.</span>';
                     break;
                 case 'github':
                     window.open('https://github.com/DanielMarinSysDev', '_blank');
-                    response = '<span class="text-green-400">» Abriendo enlace de GitHub.</span>';
+                    response = isSpanish ? '<span class="text-green-400">» Abriendo enlace de GitHub.</span>' : '<span class="text-green-400">» Opening GitHub link.</span>';
                     break;
                 case 'whoami':
-                    response = '<span class="text-gray-300">Te identifico como: Visitante curioso. ¡Encantado de conocerte!</span>';
+                    response = isSpanish ? '<span class="text-gray-300">Te identifico como: Visitante curioso. ¡Encantado de conocerte!</span>' : '<span class="text-gray-300">I identify you as: Curious visitor. Nice to meet you!</span>';
                     break;
                 case 'ping':
-                    response = '<span class="text-gray-300">PONG! (Latencia: 1ms directo a mi portafolio)</span>';
+                    response = isSpanish ? '<span class="text-gray-300">PONG! (Latencia: 1ms directo a mi portafolio)</span>' : '<span class="text-gray-300">PONG! (Latency: 1ms straight to my portfolio)</span>';
                     break;
                 case 'date':
                 case 'time':
@@ -167,25 +301,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     response = `<span class="text-brand-blue">${now.toLocaleString()}</span>`;
                     break;
                 case 'sudo rm -rf /':
-                    response = '<span class="text-red-500 font-bold animate-pulse">FATAL ERROR: PERMISSION DENIED.</span><br><span class="text-gray-400">¿De verdad creíste que te dejaría borrar mi portafolio? Nice try.</span>';
+                    response = isSpanish ? '<span class="text-red-500 font-bold animate-pulse">FATAL ERROR: PERMISSION DENIED.</span><br><span class="text-gray-400">¿De verdad creíste que te dejaría borrar mi portafolio? Nice try.</span>' : '<span class="text-red-500 font-bold animate-pulse">FATAL ERROR: PERMISSION DENIED.</span><br><span class="text-gray-400">Did you really think I would let you delete my portfolio? Nice try.</span>';
                     break;
                 case 'download cv':
-                    response = '<span class="text-brand-blue">» Preparando descarga de CV_Daniel_Marin.pdf... [MOCK]</span>';
+                    response = isSpanish ? '<span class="text-brand-blue">» Preparando descarga de CV_Daniel_Marin.pdf... [MOCK]</span>' : '<span class="text-brand-blue">» Preparing download for CV_Daniel_Marin.pdf... [MOCK]</span>';
                     break;
                 case 'matrix':
                     document.body.classList.add('sysdev-mode');
                     setTimeout(() => document.body.classList.remove('sysdev-mode'), 3000);
-                    response = '<span class="text-green-500">» Vaya conejo blanco... [Simulando Matrix por 3s]</span>';
+                    response = isSpanish ? '<span class="text-green-500">» Vaya conejo blanco... [Simulando Matrix por 3s]</span>' : '<span class="text-green-500">» Follow the white rabbit... [Simulating Matrix for 3s]</span>';
                     break;
                 case '':
                     break;
                 default:
                     if (command.startsWith('sudo ')) {
-                        response = '<span class="text-red-400 font-bold">» ACCESS DENIED. </span> <span class="text-gray-400">Ese comando será reportado a los administradores.</span>';
+                        response = isSpanish ? '<span class="text-red-400 font-bold">» ACCESS DENIED. </span> <span class="text-gray-400">Ese comando será reportado a los administradores.</span>' : '<span class="text-red-400 font-bold">» ACCESS DENIED. </span> <span class="text-gray-400">This command will be reported to the admins.</span>';
                     } else if (command.startsWith('echo ')) {
                         response = `<span class="text-gray-300">${command.substring(5)}</span>`;
                     } else {
-                        response = `<span class="text-red-400">Comando no encontrado: ${command}. Escribe <span class="text-brand-blue">help</span>.</span>`;
+                        response = isSpanish ? `<span class="text-red-400">Comando no encontrado: ${command}. Escribe <span class="text-brand-blue">help</span>.</span>` : `<span class="text-red-400">Command not found: ${command}. Type <span class="text-brand-blue">help</span>.</span>`;
                     }
             }
 
@@ -449,14 +583,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         <div class="p-6 relative z-20 flex flex-col flex-grow">
                             <h3 class="text-xl md:text-2xl font-display font-bold text-brand-blue mb-3 capitalize line-clamp-1">${repo.name.replace(/-/g, ' ')}</h3>
                             <p class="text-gray-300 mb-4 line-clamp-3 text-sm md:text-base font-tech flex-grow">
-                                ${repo.description || 'Sin descripción disponible.'}
+                                ${repo.description || (isSpanish ? 'Sin descripción disponible.' : 'No description available.')}
                             </p>
                             <div class="mb-5 flex flex-wrap gap-2 shrink-0">
                                 <span class="inline-block bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded-sm px-3 py-1 text-xs md:text-sm font-tech">${repo.language || 'Code'}</span>
                                 <span class="inline-block bg-white/5 text-gray-300 border border-white/10 rounded-sm px-3 py-1 text-xs md:text-sm font-tech">★ ${repo.stargazers_count}</span>
                             </div>
                             <div class="flex space-x-3 shrink-0 mt-auto font-tech">
-                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="text-[#0a1d28] bg-brand-blue hover:bg-sky-300 transition duration-300 px-4 py-1.5 rounded-sm font-bold border border-brand-blue">Ver Demo</a>` : ''}
+                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="text-[#0a1d28] bg-brand-blue hover:bg-sky-300 transition duration-300 px-4 py-1.5 rounded-sm font-bold border border-brand-blue">${isSpanish ? 'Ver Demo' : 'Live Demo'}</a>` : ''}
                                 <a href="${repo.html_url}" target="_blank" class="text-brand-blue font-bold hover:text-white transition duration-300 bg-transparent px-4 py-1.5 rounded-sm border border-brand-blue/30 hover:bg-brand-blue/10">GitHub</a>
                             </div>
                         </div>
@@ -496,7 +630,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         } catch (error) {
             console.error(error);
-            container.innerHTML = '<p class="text-red-400 col-span-full text-center">No se pudieron cargar los proyectos. Intenta más tarde.</p>';
+            container.innerHTML = isSpanish ? '<p class="text-red-400 col-span-full text-center">No se pudieron cargar los proyectos. Intenta más tarde.</p>' : '<p class="text-red-400 col-span-full text-center">Failed to load projects. Try again later.</p>';
         }
     };
     cargarProyectos();
@@ -540,7 +674,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function activarModoSysDev() {
-        alert('¡Modo SysDev Activado! 🐇💻');
+        alert(isSpanish ? '¡Modo SysDev Activado! 🐇💻' : 'SysDev Mode Activated! 🐇💻');
         document.body.classList.toggle('sysdev-mode');
     }
 
