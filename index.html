@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- El Título del Portafolio -->
-    <title>Daniel Marin - Portafolio Digital</title>
+    <title>Daniel Marin - Desarrollador Backend e Ingeniero de Automatización</title>
     <meta name="description"
-        content="Portafolio de Daniel Marin, estudiante de Ingeniería de Sistemas y Desarrollador Full Stack. Proyectos en Python, Web y Diseño.">
+        content="Portafolio de Daniel Marin, Desarrollador Backend e Ingeniero de Automatización. Especializado en Python, PostgreSQL, Docker, CI/CD, pipelines ETL y Next.js.">
 
     <!-- Open Graph / Facebook -->
+    <link rel="canonical" href="https://danielmarinp.com/">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://danielmarinsysdev.me/">
-    <meta property="og:title" content="Daniel Marin - Portafolio Digital">
+    <meta property="og:url" content="https://danielmarinp.com/">
+    <meta property="og:title" content="Daniel Marin - Backend & Automation Engineer">
     <meta property="og:description"
-        content="Estudiante de Ingeniería de Sistemas y Desarrollador Full Stack. Explora mis proyectos en Python, Web y Diseño.">
-    <meta property="og:image" content="https://danielmarinsysdev.me/Favicon.png">
+        content="APIs REST, bases de datos relacionales, Docker, pipelines ETL y automatización operativa con Python, PostgreSQL y Next.js.">
+    <meta property="og:image" content="https://danielmarinp.com/Favicon.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://danielmarinsysdev.me/">
-    <meta property="twitter:title" content="Daniel Marin - Portafolio Digital">
+    <meta property="twitter:url" content="https://danielmarinp.com/">
+    <meta property="twitter:title" content="Daniel Marin - Backend & Automation Engineer">
     <meta property="twitter:description"
-        content="Estudiante de Ingeniería de Sistemas y Desarrollador Full Stack. Explora mis proyectos en Python, Web y Diseño.">
-    <meta property="twitter:image" content="https://danielmarinsysdev.me/Favicon.png">
+        content="APIs REST, bases de datos relacionales, Docker, pipelines ETL y automatización operativa con Python, PostgreSQL y Next.js.">
+    <meta property="twitter:image" content="https://danielmarinp.com/Favicon.png">
 
     <!--FAVICON-->
     <link rel="icon" type="image/svg+xml" href="/Favicon.svg">
@@ -88,12 +89,12 @@
         </div>
     </div>
 
-    <!-- ==== CURSOR MAGNÉTICO (Graffio style) ==== -->
-    <div id="cursor-dot" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-brand-orange/80 mix-blend-screen pointer-events-none z-[99] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block backdrop-blur-sm"></div>
-    <div id="cursor-ring" class="fixed top-0 left-0 w-10 h-10 rounded-full border border-brand-blue/50 pointer-events-none z-[98] transform -translate-x-1/2 -translate-y-1/2 hidden md:block"></div>
+    <!-- ==== CURSOR MAGNÉTICO (Aro sutil sobre cursor nativo) ==== -->
+    <div id="cursor-dot" class="hidden"></div>
+    <div id="cursor-ring" class="fixed top-0 left-0 w-9 h-9 rounded-full border border-brand-blue/50 pointer-events-none z-[98] transform -translate-x-1/2 -translate-y-1/2 hidden md:block transition-transform duration-150 ease-out"></div>
 
     <!-- Contenedor de Partículas -->
-    <div id="tsparticles" class="absolute inset-0 -z-10"></div>
+    <div id="tsparticles" class="absolute inset-0 -z-10 pointer-events-none"></div>
 
     <!-- ==== 1. ENCABEZADO Y NAVEGACIÓN ==== -->
     <header class="sticky top-0 z-50 w-full bg-slate-900/70 backdrop-blur-md shadow-lg border-b border-white/5">
@@ -208,15 +209,15 @@
                             class="relative w-full h-full object-contain select-none pointer-events-none drop-shadow-2xl">
                     </div>
 
-                    <h1 class="text-5xl md:text-6xl font-display font-bold text-white leading-[1.1]">
-                        Construyendo <br>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-[1.1]">
+                        Backend & <br>
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-sky-300">Sistemas</span>
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-300 font-tech font-medium max-w-lg leading-relaxed">
-                        Soy <span class="text-white font-bold">Daniel Marin</span>, Ingeniero de Sistemas.
+                        Soy <span class="text-white font-bold">Daniel Marin</span>, Desarrollador Backend e Ingeniero de Automatización.
                     </p>
                     <p class="text-md text-gray-400 max-w-md">
-                        Transformando arquitecturas complejas en experiencias web limpias y funcionales.
+                        Diseño APIs REST, pipelines ETL y arquitecturas contenerizadas con Python, PostgreSQL y Docker.
                     </p>
                     
                     <div class="pt-4 flex flex-wrap gap-4">
@@ -230,9 +231,8 @@
                         </a>
                     </div>
                 </div>
-                </div>
             </div>
-        </section> <!-- Cierre del hero faltante arreglado -->
+        </section>
         
         <!-- ==== 3. SECCIÓN SOBRE MÍ ==== -->
         <section id="sobre-mi" class="py-24 md:py-32 px-6 md:px-12 relative">
@@ -253,30 +253,28 @@
                 <div class="fade-in order-1 md:order-2">
                     <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">Detrás del <span class="text-brand-blue">Código</span></h2>
                     <p class="text-lg text-gray-300 font-tech mb-8 leading-relaxed">
-                        Mi obsesión por entender cómo funcionan las cosas detrás de la pantalla me llevó a la <strong class="text-white">Ingeniería de Sistemas</strong>. Hoy, mezclo mi lógica pura con mi ojo para el diseño UI para construir experiencias que no solo funcionan, sino que se sienten vivas.
+                        Desarrollador Backend enfocado en <strong class="text-white">Python, modelado de bases de datos relacionales y automatización operativa</strong>. Diagnostico cuellos de botella en entornos reales para convertirlos en sistemas escalables y contenerizados. Estudiante de Ingeniería de Sistemas (IUPSM) • Inglés B2.
                     </p>
                     
-                    <!-- Pequeña Línea de Tiempo (Timeline) -->
+                    <!-- Línea de Tiempo (Experiencia & Stack) -->
                     <div class="border-l-2 border-brand-dark space-y-6 pl-6 relative">
                         <div class="relative">
                             <div class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-brand-blue rounded-full"></div>
-                            <h4 class="text-white font-bold font-tech text-xl">Arquitectura & Backend</h4>
-                            <p class="text-gray-400 text-sm mt-1">Python, SQL, Bases de Datos Relacionales.</p>
+                            <h4 class="text-white font-bold font-tech text-xl">Desarrollador Independiente <span class="text-xs text-brand-blue font-normal ml-1">(2024 – Presente)</span></h4>
+                            <p class="text-gray-400 text-sm mt-1">APIs REST, PostgreSQL/Supabase, workers ETL en Python, bots de Telegram, Docker, CI/CD e integración con Next.js y Flutter.</p>
                         </div>
                         <div class="relative">
                             <div class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-brand-orange rounded-full"></div>
-                            <h4 class="text-white font-bold font-tech text-xl">Frontend Dinámico</h4>
-                            <p class="text-gray-400 text-sm mt-1">JavaScript, TailwindCSS, Diseño UX/UI Interactivo.</p>
+                            <h4 class="text-white font-bold font-tech text-xl">Coordinador de Producción — Grafic-K <span class="text-xs text-brand-orange font-normal ml-1">(2022 – 2024)</span></h4>
+                            <p class="text-gray-400 text-sm mt-1">Optimización de ciclos operativos, detección de cuellos de botella manuales y troubleshooting técnico bajo presión.</p>
                         </div>
                         <div class="relative">
                             <div class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-gray-500 rounded-full"></div>
-                            <h4 class="text-white font-bold font-tech text-xl">Ecosistema & Despliegue</h4>
-                            <p class="text-gray-400 text-sm mt-1">Git, GitHub, Vercel, Optimización Web.</p>
+                            <h4 class="text-white font-bold font-tech text-xl">Stack Técnico Principal</h4>
+                            <p class="text-gray-400 text-sm mt-1">Python (Flask, Django, SQLAlchemy, Alembic, Pandas) • PostgreSQL, Supabase • TypeScript, Next.js, Flutter • Docker, GitHub Actions, n8n, Cloudflare.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>    </div>
             </div>
         </section>
 
@@ -311,18 +309,12 @@
                     Mi bandeja de entrada siempre está abierta centralizando ideas y construyendo futuro.
                 </p>
 
-                <!-- Botones de Contacto Seguros -->
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 fade-in">
+                <!-- Botón de Contacto Seguro -->
+                <div class="flex justify-center mb-12 fade-in">
                     <button
                         class="secure-link bg-brand-blue text-[#0a1d28] font-bold py-3 px-8 rounded-sm text-lg hover:bg-sky-300 transition-all duration-300 shadow-[0_0_15px_rgba(76,150,179,0.3)] transform hover:-translate-y-1"
-                        data-type="email" data-part1="contacto" data-part2="danielmarinsysdev.me">
-                        Iniciar Transmisión
-                    </button>
-
-                    <button
-                        class="secure-link bg-transparent border border-brand-orange text-brand-orange font-bold py-3 px-8 rounded-sm text-lg hover:bg-brand-orange hover:text-white transition-all duration-300 transform hover:-translate-y-1"
-                        data-type="whatsapp" data-part1="584248454940" data-msg="Hola Daniel, vi tu portafolio">
-                        Ping en WhatsApp
+                        data-type="email" data-part1="contacto" data-part2="danielmarinp.com">
+                        contacto@danielmarinp.com
                     </button>
                 </div>
 
@@ -382,17 +374,6 @@
 
     <!-- ENLACE A TU ARCHIVO JAVASCRIPT -->
     <script src="script.js" defer></script>
-
-    <!-- Vercel Analytics & Speed Insights -->
-    <script type="module">
-        // Importamos ambas herramientas desde el CDN
-        import { inject } from 'https://esm.sh/@vercel/analytics';
-        import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights';
-
-        // Iniciamos los servicios
-        inject();
-        injectSpeedInsights();
-    </script>
 
 </body>
 

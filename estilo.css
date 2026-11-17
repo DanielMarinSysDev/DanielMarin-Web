@@ -70,14 +70,7 @@
 
 /* --- V2 CUSTOM CURSOR --- */
 @media (hover: hover) and (pointer: fine) {
-    /* Ocultar el cursor por defecto solo en escritorio */
-    body {
-        cursor: none;
-    }
-    a, button, input, textarea, .cursor-pointer {
-        cursor: none !important;
-    }
-    .cursor-dot, .cursor-ring {
+    #cursor-dot, #cursor-ring {
         pointer-events: none !important;
     }
 }

@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nav_proyectos: "Projects",
             nav_contacto: "Contact",
             preloader_iniciando: "SYSTEM BOOT_",
-            hero_h1: "Building <br>\n                        <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-sky-300\">Systems</span>",
-            hero_p1: 'I am <span class="text-white font-bold">Daniel Marin</span>, Systems Engineer.',
-            hero_p2: "Transforming complex architectures into clean and functional web experiences.",
+            hero_h1: "Backend & <br>\n                        <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-sky-300\">Systems</span>",
+            hero_p1: 'I am <span class="text-white font-bold">Daniel Marin</span>, Backend Developer & Automation Engineer.',
+            hero_p2: "I design REST APIs, ETL pipelines, and containerized architectures with Python, PostgreSQL, and Docker.",
             hero_btn_proyectos: 'PROJECTS <span class="ml-2">→</span>',
             hero_btn_sobre_mi: "ABOUT ME",
             term_modulos: "» Loading core modules... [OK]",
@@ -41,19 +41,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             term_bienvenido: "Welcome to the interactive portfolio v2.0",
             term_ayuda: 'Type <span class="text-brand-blue bg-brand-blue/10 px-1 rounded">help</span> to see available commands.',
             about_h2: 'Behind the <span class="text-brand-blue">Code</span>',
-            about_p: 'My obsession with understanding how things work behind the screen led me to <strong class="text-white">Systems Engineering</strong>. Today, I mix my pure logic with my eye for UI design to build experiences that not only work, but feel alive.',
-            about_arq: "Architecture & Backend",
-            about_arq_desc: "Python, SQL, Relational Databases.",
-            about_front: "Dynamic Frontend",
-            about_front_desc: "JavaScript, TailwindCSS, Interactive UX/UI Design.",
-            about_eco: "Ecosystem & Deployment",
-            about_eco_desc: "Git, GitHub, Vercel, Web Optimization.",
+            about_p: 'Backend Developer focused on <strong class="text-white">Python, relational database modeling, and operational automation</strong>. I diagnose real-world bottlenecks to turn them into scalable, containerized systems. Systems Engineering student (IUPSM) • English B2.',
+            about_arq: 'Independent Software Developer <span class="text-xs text-brand-blue font-normal ml-1">(2024 – Present)</span>',
+            about_arq_desc: "REST APIs, PostgreSQL/Supabase, Python ETL workers, Telegram bots, Docker, CI/CD, and Next.js / Flutter integration.",
+            about_front: 'Production Coordinator — Grafic-K <span class="text-xs text-brand-orange font-normal ml-1">(2022 – 2024)</span>',
+            about_front_desc: "End-to-end operational optimization, manual bottleneck detection, and real-time technical troubleshooting under pressure.",
+            about_eco: "Core Tech Stack",
+            about_eco_desc: "Python (Flask, Django, SQLAlchemy, Alembic, Pandas) • PostgreSQL, Supabase • TypeScript, Next.js, Flutter • Docker, GitHub Actions, n8n, Cloudflare.",
             proj_h2: 'Projects <span class="text-brand-orange">Vault</span>',
-            proj_cargando: "Loading projects from GitHub...",
+            proj_cargando: "Loading featured projects...",
             contact_h2: "Connect With Me",
             contact_p: "My inbox is always open centralizing ideas and building the future.",
-            contact_btn_email: "Start Transmission",
-            contact_btn_wa: "Ping on WhatsApp",
+            contact_btn_email: "contact@danielmarinp.com",
             footer_derechos: " Daniel Marin - All rights reserved."
         };
 
@@ -101,9 +100,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const aboutH4s = document.querySelectorAll('#sobre-mi h4');
         const aboutPs = document.querySelectorAll('#sobre-mi .border-l-2 p');
         if (aboutH4s.length >= 3) {
-            aboutH4s[0].textContent = dict.about_arq;
-            aboutH4s[1].textContent = dict.about_front;
-            aboutH4s[2].textContent = dict.about_eco;
+            aboutH4s[0].innerHTML = dict.about_arq;
+            aboutH4s[1].innerHTML = dict.about_front;
+            aboutH4s[2].innerHTML = dict.about_eco;
         }
         if (aboutPs.length >= 3) {
             aboutPs[0].textContent = dict.about_arq_desc;
@@ -124,10 +123,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (contactP) contactP.textContent = dict.contact_p;
 
         const btnEmail = document.querySelector('#contacto button[data-type="email"]');
-        if (btnEmail) btnEmail.textContent = dict.contact_btn_email;
-
-        const btnWa = document.querySelector('#contacto button[data-type="whatsapp"]');
-        if (btnWa) btnWa.textContent = dict.contact_btn_wa;
+        if (btnEmail) {
+            btnEmail.textContent = dict.contact_btn_email;
+            btnEmail.setAttribute('data-part1', 'contact');
+        }
 
         const footerP = document.querySelector('footer p');
         if (footerP) {
@@ -233,6 +232,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             <span class="text-brand-blue w-24 inline-block">projects</span> Navega a mis proyectos<br>
                             <span class="text-brand-blue w-24 inline-block">contact</span> Navega a mis redes<br>
                             <span class="text-brand-blue w-24 inline-block">skills</span> Ver stack tecnológico<br>
+                            <span class="text-brand-blue w-24 inline-block">experience</span> Ver trayectoria<br>
                             <span class="text-brand-blue w-24 inline-block">theme light</span> Cambia a modo diurno<br>
                             <span class="text-brand-blue w-24 inline-block">theme dark</span> Cambia a modo nocturno<br>
                             <span class="text-brand-blue w-24 inline-block">github</span> Ir a mi perfil de GitHub<br>
@@ -246,6 +246,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             <span class="text-brand-blue w-24 inline-block">projects</span> Navigate to my projects<br>
                             <span class="text-brand-blue w-24 inline-block">contact</span> Navigate to my socials<br>
                             <span class="text-brand-blue w-24 inline-block">skills</span> View tech stack<br>
+                            <span class="text-brand-blue w-24 inline-block">experience</span> View experience<br>
                             <span class="text-brand-blue w-24 inline-block">theme light</span> Switch to light mode<br>
                             <span class="text-brand-blue w-24 inline-block">theme dark</span> Switch to dark mode<br>
                             <span class="text-brand-blue w-24 inline-block">github</span> Go to my GitHub profile<br>
@@ -280,12 +281,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     break;
                 case 'skills':
                     response = `
-                        <div class="text-green-400 py-1 font-mono">
-                            <span class="text-white">Python.......</span> ██████████ 95%<br>
-                            <span class="text-white">JavaScript...</span> ████████░░ 80%<br>
-                            <span class="text-white">SQL..........</span> ███████░░░ 70%<br>
-                            <span class="text-white">Tailwind/CSS.</span> █████████░ 90%<br>
-                            <span class="text-white">Git/GitHub...</span> ████████░░ 85%
+                        <div class="text-green-400 py-1 font-mono text-xs sm:text-sm">
+                            <span class="text-white">Python / Flask / Django..</span> ██████████ 95%<br>
+                            <span class="text-white">PostgreSQL / Supabase....</span> █████████░ 90%<br>
+                            <span class="text-white">Docker / CI-CD / n8n.....</span> █████████░ 88%<br>
+                            <span class="text-white">TypeScript / Next.js.....</span> ████████░░ 82%<br>
+                            <span class="text-white">Flutter / Dart...........</span> ███████░░░ 75%
+                        </div>`;
+                    break;
+                case 'experience':
+                    response = isSpanish ? `
+                        <div class="text-gray-300 py-1 space-y-1 text-xs sm:text-sm">
+                            <div><span class="text-brand-blue font-bold">2024 – Presente:</span> Desarrollador Independiente (APIs REST, ETL, Docker, Next.js)</div>
+                            <div><span class="text-brand-orange font-bold">2022 – 2024:</span> Coordinador de Producción @ Grafic-K (Optimización & Soporte)</div>
+                        </div>` : `
+                        <div class="text-gray-300 py-1 space-y-1 text-xs sm:text-sm">
+                            <div><span class="text-brand-blue font-bold">2024 – Present:</span> Independent Developer (REST APIs, ETL, Docker, Next.js)</div>
+                            <div><span class="text-brand-orange font-bold">2022 – 2024:</span> Production Coordinator @ Grafic-K (Optimization & Support)</div>
                         </div>`;
                     break;
                 case 'theme light':
@@ -309,7 +321,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     response = isSpanish ? '<span class="text-green-400">» Abriendo enlace de GitHub.</span>' : '<span class="text-green-400">» Opening GitHub link.</span>';
                     break;
                 case 'whoami':
-                    response = isSpanish ? '<span class="text-gray-300">Te identifico como: Visitante curioso. ¡Encantado de conocerte!</span>' : '<span class="text-gray-300">I identify you as: Curious visitor. Nice to meet you!</span>';
+                    response = isSpanish ? '<span class="text-gray-300">Daniel Marin — Desarrollador Backend & Automatización | Python · PostgreSQL · Docker | contacto@danielmarinp.com</span>' : '<span class="text-gray-300">Daniel Marin — Backend & Automation Developer | Python · PostgreSQL · Docker | contact@danielmarinp.com</span>';
                     break;
                 case 'ping':
                     response = isSpanish ? '<span class="text-gray-300">PONG! (Latencia: 1ms directo a mi portafolio)</span>' : '<span class="text-gray-300">PONG! (Latency: 1ms straight to my portfolio)</span>';
@@ -506,18 +518,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const part1 = link.getAttribute('data-part1');
             const part2 = link.getAttribute('data-part2');
 
-            let url = '';
-
-            switch (type) {
-                case 'email':
-                    url = `mailto:${part1}@${part2}`;
-                    window.location.href = url;
-                    break;
-                case 'whatsapp':
-                    const msg = link.getAttribute('data-msg');
-                    url = `https://wa.me/${part1}?text=${encodeURIComponent(msg)}`;
-                    window.open(url, '_blank');
-                    break;
+            if (type === 'email') {
+                window.location.href = `mailto:${part1}@${part2}`;
             }
         });
     });
@@ -551,12 +553,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
             interactivity: {
                 events: {
-                    onHover: { enable: true, mode: "grab" },
-                    onClick: { enable: true, mode: "push" }
-                },
-                modes: {
-                    grab: { distance: 140, links: { opacity: 0.5 } },
-                    push: { quantity: 4 }
+                    onHover: { enable: false },
+                    onClick: { enable: false }
                 }
             },
             background: { color: "transparent" }, // Fondo transparente para ver el gradiente del body
@@ -565,92 +563,105 @@ document.addEventListener('DOMContentLoaded', (event) => {
     };
     iniciarParticulas();
 
-    // --- 9. Cargar Proyectos desde GitHub ---
-    const cargarProyectos = async () => {
+    // --- 9. Proyectos Destacados (Curados del Perfil) ---
+    const cargarProyectos = () => {
         const container = document.getElementById('proyectos-container');
         if (!container) return;
 
-        try {
-            const response = await fetch('https://api.github.com/users/DanielMarinSysDev/repos?sort=updated');
-            if (!response.ok) throw new Error('Error al cargar repositorios');
+        const proyectosDestacados = [
+            {
+                title: "TaskCore — Workflow Hub & Production Core",
+                category: isSpanish ? "Backend & Arquitectura" : "Backend & Architecture",
+                description: isSpanish
+                    ? "Sistema integral de gestión de órdenes, control de inventario y flujo financiero. Arquitectura modular en Flask con migraciones Alembic, tableros Kanban, backups automatizados, Docker Compose y CI/CD."
+                    : "Comprehensive order management, inventory control, and financial flow system. Modular Flask architecture with Alembic migrations, interactive Kanban boards, automated backups, Docker Compose, and CI/CD.",
+                stack: ["Python", "Flask", "PostgreSQL", "Docker", "Alembic", "GitHub Actions"],
+                github: "https://github.com/DanielMarinSysDev/taskcore-showcase",
+                demo: null,
+                accent: "from-brand-blue/30 via-[#0a1d28] to-[#05080b]"
+            },
+            {
+                title: "SoraAtelier — Headless E-Commerce & AI",
+                category: isSpanish ? "Full Stack & IA" : "Full Stack & AI",
+                description: isSpanish
+                    ? "Catálogo dinámico en Next.js y TypeScript con enriquecimiento automático de productos mediante Google Gemini API, Google Sheets/Drive como Headless CMS y cierre de ventas vía WhatsApp API."
+                    : "Dynamic catalog platform built with Next.js and TypeScript featuring automated product enrichment via Google Gemini API, Google Sheets/Drive as a decoupled Headless CMS, and WhatsApp API checkout.",
+                stack: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API", "Google Drive API", "WhatsApp API"],
+                github: "https://github.com/DanielMarinSysDev",
+                demo: null,
+                accent: "from-brand-orange/30 via-[#0a1d28] to-[#05080b]"
+            },
+            {
+                title: isSpanish ? "Pipeline ETL E-Commerce & Bots" : "E-Commerce ETL Pipeline & Bots",
+                category: isSpanish ? "Automatización & Datos" : "Automation & Data",
+                description: isSpanish
+                    ? "Herramienta ETL en Python para autenticación, ingesta y transformación de datos JSON anidados desde Shopify API, generando reportes periódicos de producción y alertas en tiempo real vía Telegram Bot y n8n."
+                    : "Python ETL tool for authentication, ingestion, and transformation of nested JSON data from Shopify API, generating periodic production reports and real-time alerts via Telegram Bot and n8n.",
+                stack: ["Python", "Shopify API", "Telegram Bot API", "Requests", "n8n"],
+                github: "https://github.com/DanielMarinSysDev",
+                demo: null,
+                accent: "from-sky-500/25 via-[#0a1d28] to-[#05080b]"
+            }
+        ];
 
-            const repos = await response.json();
-            // Filtrar forks y el repositorio de perfil (readme de GitHub)
-            const proyectos = repos.filter(repo => !repo.fork && repo.name !== 'DanielMarinSysDev');
+        container.innerHTML = '';
 
-            container.innerHTML = ''; // Limpiar loader
+        proyectosDestacados.forEach(proj => {
+            const card = document.createElement('div');
+            card.className = 'swiper-slide flex justify-center pb-12 pt-4 px-2';
 
-            proyectos.forEach(repo => {
-                const card = document.createElement('div');
-                // Añadimos la clase 'swiper-slide' obligatoria para el carrusel
-                card.className = 'swiper-slide flex justify-center pb-12 pt-4 px-2';
+            const badgesHtml = proj.stack
+                .map(tech => `<span class="inline-block bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded-sm px-2.5 py-1 text-xs font-tech">${tech}</span>`)
+                .join('');
 
-                // Imagen por defecto o personalizada si existiera
-                const imgUrl = `https://opengraph.githubassets.com/1/DanielMarinSysDev/${repo.name}`;
-
-                // Lógica personalizada para proyectos específicos
-                if (repo.name.toLowerCase().includes('inventario') || repo.name.toLowerCase().includes('electiva')) {
-                    repo.homepage = 'https://inventario.danielmarinsysdev.me';
-                }
-
-                card.innerHTML = `
-                    <div class="bg-[#05080b]/90 backdrop-blur-md shadow-xl rounded-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(76,150,179,0.2)] border border-white/5 group w-full h-full flex flex-col">
-                        <div class="relative overflow-hidden w-full h-48 md:h-56 shrink-0">
-                            <div class="absolute inset-0 github-card-gradient opacity-80 z-10 transition-opacity duration-300 group-hover:opacity-40"></div>
-                            <img src="${imgUrl}" alt="Imagen del proyecto ${repo.name}" class="absolute inset-0 w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+            card.innerHTML = `
+                <div class="bg-[#05080b]/90 backdrop-blur-md shadow-xl rounded-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(76,150,179,0.2)] border border-white/5 group w-full h-full flex flex-col">
+                    <div class="relative overflow-hidden w-full h-40 shrink-0 bg-gradient-to-br ${proj.accent} flex flex-col justify-between p-6 border-b border-white/5">
+                        <span class="font-tech text-xs uppercase tracking-widest text-brand-orange font-bold">${proj.category}</span>
+                        <h3 class="text-xl md:text-2xl font-display font-bold text-white leading-snug line-clamp-2">${proj.title}</h3>
+                    </div>
+                    <div class="p-6 relative z-20 flex flex-col flex-grow">
+                        <p class="text-gray-300 mb-5 text-sm md:text-base font-tech leading-relaxed flex-grow">
+                            ${proj.description}
+                        </p>
+                        <div class="mb-5 flex flex-wrap gap-2 shrink-0">
+                            ${badgesHtml}
                         </div>
-                        <div class="p-6 relative z-20 flex flex-col flex-grow">
-                            <h3 class="text-xl md:text-2xl font-display font-bold text-brand-blue mb-3 capitalize line-clamp-1">${repo.name.replace(/-/g, ' ')}</h3>
-                            <p class="text-gray-300 mb-4 line-clamp-3 text-sm md:text-base font-tech flex-grow">
-                                ${repo.description || (isSpanish ? 'Sin descripción disponible.' : 'No description available.')}
-                            </p>
-                            <div class="mb-5 flex flex-wrap gap-2 shrink-0">
-                                <span class="inline-block bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded-sm px-3 py-1 text-xs md:text-sm font-tech">${repo.language || 'Code'}</span>
-                                <span class="inline-block bg-white/5 text-gray-300 border border-white/10 rounded-sm px-3 py-1 text-xs md:text-sm font-tech">★ ${repo.stargazers_count}</span>
-                            </div>
-                            <div class="flex space-x-3 shrink-0 mt-auto font-tech">
-                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="text-[#0a1d28] bg-brand-blue hover:bg-sky-300 transition duration-300 px-4 py-1.5 rounded-sm font-bold border border-brand-blue">${isSpanish ? 'Ver Demo' : 'Live Demo'}</a>` : ''}
-                                <a href="${repo.html_url}" target="_blank" class="text-brand-blue font-bold hover:text-white transition duration-300 bg-transparent px-4 py-1.5 rounded-sm border border-brand-blue/30 hover:bg-brand-blue/10">GitHub</a>
-                            </div>
+                        <div class="flex space-x-3 shrink-0 mt-auto font-tech">
+                            ${proj.demo ? `<a href="${proj.demo}" target="_blank" rel="noopener noreferrer" class="text-[#0a1d28] bg-brand-blue hover:bg-sky-300 transition duration-300 px-4 py-1.5 rounded-sm font-bold border border-brand-blue">${isSpanish ? 'Ver Demo' : 'Live Demo'}</a>` : ''}
+                            <a href="${proj.github}" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-bold hover:text-white transition duration-300 bg-transparent px-4 py-1.5 rounded-sm border border-brand-blue/30 hover:bg-brand-blue/10">GitHub</a>
                         </div>
                     </div>
-                `;
-                container.appendChild(card);
-            });
+                </div>
+            `;
+            container.appendChild(card);
+        });
 
-            // Inicializar SwiperJS después de que los proyectos se han renderizado
-            new Swiper(".proyectos-swiper", {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                grabCursor: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
+        new Swiper(".proyectos-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            grabCursor: true,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
                 },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                    dynamicBullets: true,
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
                 },
-                breakpoints: {
-                    // Mobile landscape y tablets
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    // Desktop
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
-                },
-            });
-
-        } catch (error) {
-            console.error(error);
-            container.innerHTML = isSpanish ? '<p class="text-red-400 col-span-full text-center">No se pudieron cargar los proyectos. Intenta más tarde.</p>' : '<p class="text-red-400 col-span-full text-center">Failed to load projects. Try again later.</p>';
-        }
+            },
+        });
     };
     cargarProyectos();
 
