@@ -41,7 +41,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Inter (Cuerpo), Space Grotesk (Técnica/Botones), Syne (Titulares audaces) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Configuración de Tailwind (Custom Font & Colors) -->
     <script>
@@ -77,7 +79,8 @@
     style="background: radial-gradient(circle at top, #0a1d28 0%, #05080b 100%);">
 
     <!-- ==== PRELOADER V2 ==== -->
-    <div id="preloader" class="fixed inset-0 z-[100] bg-[#05080b] flex flex-col items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]">
+    <div id="preloader"
+        class="fixed inset-0 z-[100] bg-[#05080b] flex flex-col items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]">
         <div class="w-full max-w-sm px-6">
             <div class="flex justify-between text-brand-blue font-tech mb-2 text-sm tracking-widest">
                 <span>INICIANDO SISTEMA_</span>
@@ -91,7 +94,9 @@
 
     <!-- ==== CURSOR MAGNÉTICO (Aro sutil sobre cursor nativo) ==== -->
     <div id="cursor-dot" class="hidden"></div>
-    <div id="cursor-ring" class="fixed top-0 left-0 w-9 h-9 rounded-full border border-brand-blue/50 pointer-events-none z-[98] transform -translate-x-1/2 -translate-y-1/2 hidden md:block transition-transform duration-150 ease-out"></div>
+    <div id="cursor-ring"
+        class="fixed top-0 left-0 w-9 h-9 rounded-full border border-brand-blue/50 pointer-events-none z-[98] transform -translate-x-1/2 -translate-y-1/2 hidden md:block transition-transform duration-150 ease-out">
+    </div>
 
     <!-- Contenedor de Partículas -->
     <div id="tsparticles" class="absolute inset-0 -z-10 pointer-events-none"></div>
@@ -101,10 +106,12 @@
         <nav class="max-w-7xl mx-auto px-6 md:px-12 py-4">
             <div class="flex justify-between items-center">
                 <!-- Tu Nombre o Logo -->
-                <a href="#inicio"
-                    class="flex items-center gap-3 hover:opacity-80 transition duration-300">
-                    <img id="nav-logo" src="L_C.png" alt="Logo de Daniel Marin" class="h-10 w-auto object-contain select-none pointer-events-none transition-all duration-300">
-                    <span class="text-2xl font-display font-bold text-white transition-colors duration-300 nav-name tracking-wide">Daniel Marin</span>
+                <a href="#inicio" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
+                    <img id="nav-logo" src="L_C.png" alt="Logo de Daniel Marin"
+                        class="h-10 w-auto object-contain select-none pointer-events-none transition-all duration-300">
+                    <span
+                        class="text-2xl font-display font-bold text-white transition-colors duration-300 nav-name tracking-wide">Daniel
+                        Marin</span>
                 </a>
 
                 <!-- Controles Derecha -->
@@ -122,7 +129,9 @@
                     </div>
 
                     <!-- Botón de Idioma -->
-                    <button id="lang-toggle" class="text-brand-orange font-tech font-bold text-sm border border-brand-orange/50 hover:bg-brand-orange hover:text-[#0a0f14] px-3 py-1.5 rounded-sm transition-colors duration-300" title="Change Language">
+                    <button id="lang-toggle"
+                        class="text-brand-orange font-tech font-bold text-sm border border-brand-orange/50 hover:bg-brand-orange hover:text-[#0a0f14] px-3 py-1.5 rounded-sm transition-colors duration-300"
+                        title="Change Language">
                         EN
                     </button>
 
@@ -162,13 +171,16 @@
         <!-- ==== 2. SECCIÓN DE INICIO (HERO) ==== -->
         <section id="inicio" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6">
             <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                
+
                 <!-- Columna Izquierda: Terminal / Easter Egg (Ahora a la izquierda para balancear) -->
                 <div class="w-full relative fade-in">
                     <!-- Glow de fondo para la terminal -->
-                    <div id="terminal-glow" class="absolute -inset-1 bg-gradient-to-b from-brand-blue/20 to-brand-dark rounded-xl blur-xl opacity-50 transition-opacity duration-300"></div>
-                    
-                    <div class="relative w-full bg-[#05080b] border border-white/10 rounded-xl overflow-hidden shadow-2xl flex flex-col h-[350px] font-mono text-sm leading-relaxed">
+                    <div id="terminal-glow"
+                        class="absolute -inset-1 bg-gradient-to-b from-brand-blue/20 to-brand-dark rounded-xl blur-xl opacity-50 transition-opacity duration-300">
+                    </div>
+
+                    <div
+                        class="relative w-full bg-[#05080b] border border-white/10 rounded-xl overflow-hidden shadow-2xl flex flex-col h-[350px] font-mono text-sm leading-relaxed">
                         <!-- Barra Superior OSX/Linux style -->
                         <div class="bg-white/5 px-4 py-3 flex items-center border-b border-white/10 shrink-0">
                             <div class="flex space-x-2">
@@ -176,24 +188,32 @@
                                 <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                                 <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
                             </div>
-                            <div class="mx-auto text-gray-400 text-xs font-tech font-bold uppercase tracking-widest pl-6">daniel@sysdev:~</div>
+                            <div
+                                class="mx-auto text-gray-400 text-xs font-tech font-bold uppercase tracking-widest pl-6">
+                                daniel@sysdev:~</div>
                         </div>
-                        
+
                         <!-- Cuerpo de la Terminal -->
                         <div id="terminal-body" class="p-5 flex-grow overflow-y-auto text-gray-300 space-y-2 relative">
-                            <p><span class="text-brand-blue font-bold">daniel@sysdev:~$</span> <span class="text-white">./iniciar_sistema.sh</span></p>
+                            <p><span class="text-brand-blue font-bold">daniel@sysdev:~$</span> <span
+                                    class="text-white">./iniciar_sistema.sh</span></p>
                             <p class="text-gray-400">» Cargando módulos básicos... [OK]</p>
                             <p class="text-gray-400">» Inicializando Motor UI... [OK]</p>
-                            <p class="text-brand-orange mt-2 font-bold select-none">Bienvenido al portafolio interactivo v2.0</p>
-                            <p class="mb-4">Escribe <span class="text-brand-blue bg-brand-blue/10 px-1 rounded">help</span> para ver los comandos disponibles.</p>
-                            
+                            <p class="text-brand-orange mt-2 font-bold select-none">Bienvenido al portafolio interactivo
+                                v2.0</p>
+                            <p class="mb-4">Escribe <span
+                                    class="text-brand-blue bg-brand-blue/10 px-1 rounded">help</span> para ver los
+                                comandos disponibles.</p>
+
                             <!-- Historial de comandos inyectado por JS -->
                             <div id="terminal-history" class="space-y-2"></div>
-                            
+
                             <!-- Línea Activa -->
                             <div class="flex items-center mt-2 pb-4">
                                 <span class="text-brand-blue font-bold mr-2">daniel@sysdev:~$</span>
-                                <input id="terminal-input" type="text" class="flex-grow bg-transparent border-none outline-none text-white focus:ring-0 placeholder-gray-600" autocomplete="off" spellcheck="false" autofocus>
+                                <input id="terminal-input" type="text"
+                                    class="flex-grow bg-transparent border-none outline-none text-white focus:ring-0 placeholder-gray-600"
+                                    autocomplete="off" spellcheck="false" autofocus>
                             </div>
                         </div>
                     </div>
@@ -203,23 +223,27 @@
                 <div class="flex flex-col text-left space-y-6 lg:pl-10">
                     <!-- Mini Logo para el layout asimétrico -->
                     <div class="relative w-24 h-24 mb-4">
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-blue to-brand-orange blur-lg opacity-30"></div>
-                        <img id="profile-img" src="L_B.png" alt="Logo de Daniel Marin"
-                            draggable="false" oncontextmenu="return false;" 
+                        <div
+                            class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-blue to-brand-orange blur-lg opacity-30">
+                        </div>
+                        <img id="profile-img" src="L_B.png" alt="Logo de Daniel Marin" draggable="false"
+                            oncontextmenu="return false;"
                             class="relative w-full h-full object-contain select-none pointer-events-none drop-shadow-2xl">
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-[1.1]">
                         Backend & <br>
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-sky-300">Sistemas</span>
+                        <span
+                            class="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-sky-300">Sistemas</span>
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-300 font-tech font-medium max-w-lg leading-relaxed">
-                        Soy <span class="text-white font-bold">Daniel Marin</span>, Desarrollador Backend e Ingeniero de Automatización.
+                        Soy <span class="text-white font-bold">Daniel Marin</span>, Desarrollador Backend e Ingeniero de
+                        Automatización.
                     </p>
                     <p class="text-md text-gray-400 max-w-md">
                         Diseño APIs REST, pipelines ETL y arquitecturas contenerizadas con Python, PostgreSQL y Docker.
                     </p>
-                    
+
                     <div class="pt-4 flex flex-wrap gap-4">
                         <a href="#proyectos"
                             class="inline-flex items-center justify-center bg-brand-blue text-[#0a1d28] font-tech font-bold py-3 px-8 rounded-sm hover:bg-sky-300 transition-colors duration-300">
@@ -233,16 +257,18 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- ==== 3. SECCIÓN SOBRE MÍ ==== -->
         <section id="sobre-mi" class="py-24 md:py-32 px-6 md:px-12 relative">
             <div class="absolute inset-0 bg-[#070b0e] -z-10 transform -skew-y-3 origin-top-left"></div>
-            
+
             <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <!-- Imagen o Ilustración -->
                 <div class="fade-in order-2 md:order-1 relative">
                     <div class="relative group mx-auto max-w-sm">
-                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-blue to-brand-orange rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                        <div
+                            class="absolute -inset-2 bg-gradient-to-r from-brand-blue to-brand-orange rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition duration-500">
+                        </div>
                         <img src="src/assets/media/bg_asset_hash_x92.png" alt="Daniel Marin - Sobre Mí"
                             draggable="false" oncontextmenu="return false;"
                             class="relative rounded-2xl shadow-2xl aspect-square object-cover border border-brand-blue/20 w-full select-none pointer-events-none transition-all duration-700">
@@ -251,27 +277,44 @@
 
                 <!-- Texto "Sobre Mí" + Timeline -->
                 <div class="fade-in order-1 md:order-2">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">Detrás del <span class="text-brand-blue">Código</span></h2>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">Detrás del <span
+                            class="text-brand-blue">Código</span></h2>
                     <p class="text-lg text-gray-300 font-tech mb-8 leading-relaxed">
-                        Desarrollador Backend enfocado en <strong class="text-white">Python, modelado de bases de datos relacionales y automatización operativa</strong>. Diagnostico cuellos de botella en entornos reales para convertirlos en sistemas escalables y contenerizados. Estudiante de Ingeniería de Sistemas (IUPSM) • Inglés B2.
+                        Desarrollador Backend enfocado en <strong class="text-white">Python, modelado de bases de datos
+                            relacionales y automatización operativa</strong>. Diagnostico cuellos de botella en entornos
+                        reales para convertirlos en sistemas escalables y contenerizados. Estudiante de Ingeniería de
+                        Sistemas (IUPSM) • Inglés B2.
                     </p>
-                    
+
                     <!-- Línea de Tiempo (Experiencia & Stack) -->
                     <div class="border-l-2 border-brand-dark space-y-6 pl-6 relative">
                         <div class="relative">
-                            <div class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-brand-blue rounded-full"></div>
-                            <h4 class="text-white font-bold font-tech text-xl">Desarrollador Independiente <span class="text-xs text-brand-blue font-normal ml-1">(2024 – Presente)</span></h4>
-                            <p class="text-gray-400 text-sm mt-1">APIs REST, PostgreSQL/Supabase, workers ETL en Python, bots de Telegram, Docker, CI/CD e integración con Next.js y Flutter.</p>
+                            <div
+                                class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-brand-blue rounded-full">
+                            </div>
+                            <h4 class="text-white font-bold font-tech text-xl">Desarrollador Independiente <span
+                                    class="text-xs text-brand-blue font-normal ml-1">(2024 – Presente)</span></h4>
+                            <p class="text-gray-400 text-sm mt-1">APIs REST, PostgreSQL/Supabase, workers ETL en Python,
+                                bots de Telegram, Docker, CI/CD e integración con Next.js y Flutter.</p>
                         </div>
                         <div class="relative">
-                            <div class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-brand-orange rounded-full"></div>
-                            <h4 class="text-white font-bold font-tech text-xl">Coordinador de Producción — Grafic-K <span class="text-xs text-brand-orange font-normal ml-1">(2022 – 2024)</span></h4>
-                            <p class="text-gray-400 text-sm mt-1">Optimización de ciclos operativos, detección de cuellos de botella manuales y troubleshooting técnico bajo presión.</p>
+                            <div
+                                class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-brand-orange rounded-full">
+                            </div>
+                            <h4 class="text-white font-bold font-tech text-xl">Coordinador de Producción — Grafic-K
+                                <span class="text-xs text-brand-orange font-normal ml-1">(2022 – 2024)</span>
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">Optimización de ciclos operativos, detección de
+                                cuellos de botella manuales y troubleshooting técnico bajo presión.</p>
                         </div>
                         <div class="relative">
-                            <div class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-gray-500 rounded-full"></div>
+                            <div
+                                class="absolute -left-[33px] top-1 w-4 h-4 bg-[#0a0f14] border-2 border-gray-500 rounded-full">
+                            </div>
                             <h4 class="text-white font-bold font-tech text-xl">Stack Técnico Principal</h4>
-                            <p class="text-gray-400 text-sm mt-1">Python (Flask, Django, SQLAlchemy, Alembic, Pandas) • PostgreSQL, Supabase • TypeScript, Next.js, Flutter • Docker, GitHub Actions, n8n, Cloudflare.</p>
+                            <p class="text-gray-400 text-sm mt-1">Python (Flask, Django, SQLAlchemy, Alembic, Pandas) •
+                                PostgreSQL, Supabase • TypeScript, Next.js, Flutter • Docker, GitHub Actions, n8n,
+                                Cloudflare.</p>
                         </div>
                     </div>
                 </div>
@@ -290,10 +333,11 @@
                     <div class="swiper-wrapper" id="proyectos-container">
                         <!-- Los proyectos se cargarán dinámicamente con JS -->
                         <div class="swiper-slide flex justify-center w-full">
-                            <p class="text-gray-400 animate-pulse text-center w-full">Cargando proyectos desde GitHub...</p>
+                            <p class="text-gray-400 animate-pulse text-center w-full">Cargando proyectos desde GitHub...
+                            </p>
                         </div>
                     </div>
-                    
+
                     <!-- Botones y Paginación -->
                     <div class="swiper-pagination mt-10"></div>
                 </div>
