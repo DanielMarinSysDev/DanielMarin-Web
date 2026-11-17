@@ -528,11 +528,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const iniciarParticulas = async () => {
         await tsParticles.load('tsparticles', {
             particles: {
-                color: { value: "#ffffff" },
+                color: { value: "#4c96b3" },
                 links: {
                     enable: true,
-                    color: "#ffffff",
-                    opacity: 0.1,
+                    color: "#4c96b3",
+                    opacity: 0.25,
                     distance: 150
                 },
                 move: {
@@ -547,14 +547,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     value: 60,
                     density: { enable: true, area: 800 }
                 },
-                opacity: { value: 0.1 },
+                opacity: { value: 0.35 },
                 shape: { type: "circle" },
-                size: { value: { min: 1, max: 3 } }
+                size: { value: { min: 1.5, max: 3 } }
             },
             interactivity: {
+                detectsOn: "window",
                 events: {
-                    onHover: { enable: false },
+                    onHover: { enable: true, mode: "grab" },
                     onClick: { enable: false }
+                },
+                modes: {
+                    grab: { distance: 150, links: { opacity: 0.65 } }
                 }
             },
             background: { color: "transparent" }, // Fondo transparente para ver el gradiente del body
